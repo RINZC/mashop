@@ -1,0 +1,17 @@
+<script src="/javascript/core.js"></script>
+
+<div class="menu posFixed">
+    <% if (locals.m_session.name==null) {%> 
+        <p class="topa btn" id="enter_" onclick="load()">e n t e r</p>
+    <% } else {%>
+        <p class="topa btn" id="enter_" onclick="load()"><%= m_session.name %> </p>
+    <% } %>  
+    <hr class="m">
+    <p class="btn" onclick="menu(0)">Home</p>
+</div>
+<div class="top_text sticky">
+    <p><%= m_session.name %> </p>
+</div>
+<div class="footer">
+    <p>2022 &copy; oprcrinzc</p>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('partials/header'); %>
+    <title>user</title>
+</head>
+<body>
+    <% if(locals.m_session?.name==undefined){ %> 
+        <%- include('partials/oAlert'); %>
+        <center>
+            <div class="content-norm topa ">
+                <div class="flex top-left">
+                    <p class="btn" onclick="menu(0)">กับ</p>
+                </div>
+                <div class="card group-hori">
+                    <div class="card-title">
+                        <p>เข้าสู่ระบบ</p>
+                    </div>
+                    <div class="crad-content">
+                        <form action="/user" method="post">
+                            <div class="block input-group">
+                                <input type="text" name="uname" placeholder="ยูเนม">
+                                <input type="password" name="paswd" placeholder="พาสเหวิด">
+                                <input type="submit" value="เข้าเลยๆ">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card group-hori">
+                    <div class="card-title">
+                        <p>สร้างบันชี</p>
+                    </div>
+                    <div class="crad-content">
+                        <form action="/user" method="post">
+                            <div class="block input-group">
+                                <input type="text" name="uname" placeholder="ยูเนม">
+                                <input type="email" name="memail" placeholder="อีเมรึ">
+                                <input type="password" name="paswd" placeholder="พาสเหวิด">
+                                <input type="submit" value="สร้างสักทีดิวะ">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </center>
+    <% } else { %>
+        <%- include('index', {content: "user"})  %> 
+    <% } %>  
+</body>
+</html>

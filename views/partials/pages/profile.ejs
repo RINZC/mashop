@@ -1,0 +1,35 @@
+<div class="info">
+    <div class="card">
+        <div class="card-title">
+            <p>บันชีร์ของคุน</p>
+        </div>
+        <div class="card-content">
+            <div class="card">
+                <div class="card-content flex">
+                    <div class="pairs none-select">
+                        <div class="key"><p>ชื่อผู้ใช้</p></div>
+                        <div class="value">
+                            <!-- <input class=" none-select" type="text" name="name" id="new_name" value="<%= _Data['session']['name'] %>"  > -->
+                            <p class="pill"><%= _Data['session']['name'] %></p>
+                        </div>
+                    </div>
+                    <div class="pairs none-select">
+                        <div class="key"><p>อีเมล</p></div>
+                        <div class="value ">
+                            <!-- <input class=" none-select" type="text" name="name" id="new_name" value="<%= _Data['session']['email'] %>"  > -->
+                            <p class="pill"><%= _Data['session']['email'] %></p>
+                        </div>
+                    </div>
+                    <div class="pairs none-select">
+                        <div class="key"><p>สร้างเมื่อ</p></div>
+                        <div class="value">
+                            <!-- <input class=" none-select" type="text" name="name" id="new_name" value="<%= _Data['session']['email'] %>"  > -->
+                            <p class="pill"><%= _Data['session']['created'] %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="btn danger" onclick="load(0)">logout</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<% if (locals.m_error){ %>
+    <% if (locals.m_error == '1'){ %>
+        <script>    
+            Swal.fire('เข้าสู่ระบบไม่ได้', ' ไม่บอกหรอกนะอะไรทำให้เข้าไม่ได้', 'warnning');
+        </script>    
+    <% }%> <% if (locals.m_error == '2'){ %>
+        <script>    
+            Swal.fire('การสร้างบันชีร์ ผิดพาด', 'ไม่บอกหรอก ไม่ช่วยด้วยแก้เอง', 'warnning');
+        </script>    
+    <% }%> 
+<% }%>
