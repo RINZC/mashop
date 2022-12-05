@@ -1,0 +1,186 @@
+body {
+    background-color: rgb(9, 3, 17);
+    font-family: 'Prompt';
+    margin: 0;
+    padding: 0;
+        
+} body.index {
+    display: grid;
+    grid-template-columns: 10rem auto;
+    grid-template-areas: 
+    "s news"
+    "s c"
+    "s footer"
+    ;
+}
+p {
+    color: rgb(179, 176, 176);
+}
+
+.left, .right {
+    display: inline-table;
+}
+
+.menu {
+    grid-area: s;
+    margin: 0;
+    width: 10rem;
+    height: 100%;
+    background-color: rgb(19, 31, 43);
+
+    overflow-y: scroll;
+    user-select: none;
+} .menu p {
+    margin: 1rem;
+} .menu .topa {
+    background-color: rgb(96, 39, 129);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+} .menu .topa p {
+    margin: 0.5rem;
+}
+
+.content {
+    grid-area: c;
+    background-color: rgb(31, 46, 59);
+    border-radius: 0.5rem;
+    margin-right: 0.4rem;
+    margin-left: 0.6rem;
+    margin-top: 0.6rem;
+    padding: 0.5rem;
+}
+.content-norm {
+    background-color: rgb(31, 46, 59);
+    border-radius: 0.5rem;
+    margin-right: 0.6rem;
+    margin-left: 0.6rem;
+    margin-top: 0.6rem;
+    padding: 0.5rem;
+}
+
+.top_text {
+    grid-area: news;
+    background-color: rgb(40, 70, 97);
+}
+
+.footer {
+    grid-area: footer;
+}
+
+
+
+.btn {
+    user-select: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+} .btn:hover {
+    background-color: rgba(100, 100, 100, 0.123);
+}
+.danger {
+    background-color: rgb(209, 64, 64);
+} .danger:hover {
+    background-color: rgb(156, 48, 48);
+}
+
+
+.topa {
+    margin-top: 2rem;
+}
+
+.group-hori {
+    display: inline-table;
+}
+
+
+.card {
+    margin: 0.3rem;
+    padding: 1rem;
+    padding-top: 0;
+    background-color: rgb(96, 39, 129);
+    border-radius: .5rem;
+} .card-title, .crad-content {
+    display: block;
+} 
+
+.input-group > input {
+    border: none;
+    margin: 0.3rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    padding: .5rem;
+    text-align: center;
+    align-items: center;
+} .input-group > *:focus{
+    outline: none;
+} .input-group > input[type="submit"] {
+    background-color: rgb(70, 170, 56);
+    color: white;
+    width: 60%;
+    transition: .2s;
+    
+} .input-group > input[type="submit"]:hover{
+    width: 96%;
+}
+
+
+.pairs > .key, .value{
+    display: inline-flex;
+} .pairs > .value {
+    color: black;
+}
+
+.pill {
+    background-color: rgb(209, 64, 64);
+    padding: 0.4rem;
+    border-radius: 0.7rem;
+    color: black;
+}
+
+
+.posFixed {
+    position: fixed;
+}
+
+.block > *{
+    display: block;
+}
+.flex {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 1rem;
+    flex-direction: row;
+}
+
+.sticky {
+    position: sticky;
+    top: 0%;
+}
+
+.none-select {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+  }
+
+hr.m {
+    border: 1px solid rgb(179, 176, 176);
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+.top-left {
+    align-items: flex-start;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1;
+    background: rgb(179, 176, 176);
+}
