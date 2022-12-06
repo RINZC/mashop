@@ -14,7 +14,14 @@ oAlert=(msg, dur, tpy)=>{
 }
 
 menu=(ch=0)=>{
-    if(ch==0){
-        window.location = "/"
+    // if (ch == 0){
+    //     window.location = "/"
+    // }
+    switch (ch) {
+        case 0:
+            return window.location = "/"
+        case 1:
+            return window.location = "/user"
     }
+    // แก้ละ
 }
