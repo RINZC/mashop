@@ -2,7 +2,7 @@ const ep = require('express');
 const { login } = require('../libs/db');
 const r = ep.Router();
 
-const user = require('../libs/db')
+const {user} = require('../libs/db')
 
 r.get('/', (req, res)=>{
     var err = 0
@@ -37,6 +37,7 @@ r.post('/',async (req, res)=>{
                 for ( i in r) {
                     data[i] = r[i]
                 }
+                req.session.perm = data.perm
                 req.session.name = data.name
                 req.session.email = data.email
                 req.session.created = data.created

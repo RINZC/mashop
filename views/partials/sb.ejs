@@ -7,10 +7,16 @@
         <p class="topa btn" id="enter_" onclick="load()"><%= m_session.name %> </p>
     <% } %>  
     <hr class="m">
+    <% if(locals.m_session.perm != 'norm' && m_session.perm === 'super') {%>
+        <form action="/backend" method="post" id="sbm">
+            <p  class="btn" onclick="document.getElementById('sbm').submit()">backend</p>
+        </form>
+    <% } %>  
     <p class="btn" onclick="menu(0)">Home</p>
+    <p class="btn" onclick="menu(2)">Store</p>
 </div>
 <div class="top_text sticky">
-    <p><%= m_session.name %> </p>
+    <p><%= m_session.perm %> </p>
 </div>
 <div class="footer">
     <p>2022 &copy; oprcrinzc</p>

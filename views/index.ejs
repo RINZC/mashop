@@ -12,9 +12,15 @@
     <%- include('partials/oAlert'); %>
     <div class="content">
         <% if (locals.content!=null) { %>
-            <% if(content=="user"){ %>
-                <%- include('partials/pages/profile') %>        
+            <% if (content=="user") {%>
+                <%- include('partials/pages/profile') %>
+            <% } %> 
+            <% if (content=="store") {%>
+                <%- include('partials/pages/store') %>
             <% } %>  
+            <% if ( content=="backend" && _Data['session'].perm === 'super' && _Data['session'].perm !== 'norm' ) {%>
+                <%- include('partials/pages/backend') %>
+            <% } %> 
         <% } else { %>
             <% for (x in _Data){%> 
                 <p><%= x %></p>

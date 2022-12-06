@@ -23,5 +23,5 @@ menu=(ch=0)=>{
         case 1:
             return window.location = "/user"
     }
-    // แก้ละ
+    // แก้ละ ok na
 }
