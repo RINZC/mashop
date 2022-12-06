@@ -34,6 +34,7 @@ const user = {
                 let ndate = new Date(Date.now());
                 let cd = `${ndate.getFullYear()}.${ndate.getMonth()}.${ndate.getDay()}`
                 let comp = {
+                    perm:'norm',
                     name: data.name,
                     password: data.password,
                     email: data.email,
@@ -77,4 +78,8 @@ const user = {
 //user.create({name:"oprcrinzc", email:'oprcrinzc@mail.riz'})
 //user.create({name:"rinzc", email:'rinzc@mail.riz'})
 
-module.exports = user;
+const store= {
+
+}
+
+module.exports = {user};
