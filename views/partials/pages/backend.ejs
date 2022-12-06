@@ -1,0 +1,25 @@
+<div class="info">
+    <div class="card">
+        <div class="card-title">
+            <p>backend</p>
+        </div>
+        <div class="card-content">
+            <div class="card">
+                <div class="card-title">
+                    <p>items</p>
+                </div>
+                <div class="card-content flex">
+                    <% if ( locals.items ) {%>
+                        <% for (item in items) {%>
+                            <div class="item">
+                                <div class="<% if ( locals._Data['cookies']['showImg'] === false ){%> dp-none <%} else {%>img-b<% } %>  ">
+                                    <%= items[item] %> 
+                                </div>
+                            </div>
+                        <% } %>  
+                    <% } %>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

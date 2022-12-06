@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 
 const index_r = require('./routes/index');
 const user_r = require('./routes/user');
+const store_r = require('./routes/store');
+const backend_r = require('./routes/backend');
 
 app.use(express.static("./public"));
 // app.use(bodyParser.urlencoded({extended:false}));
@@ -28,6 +30,8 @@ app.set('views', './views');
 
 app.use('/', index_r);
 app.use('/user', user_r);
+app.use('/store', store_r);
+app.use('/backend', backend_r);
  
 app.listen(80, ()=>{
     console.log('ok on 80');
