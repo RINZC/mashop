@@ -10,14 +10,17 @@ r.get('/', (req, res)=>{
         console.log('session destroyed')
         req.session.destroy()
         return res.redirect('/')
-    } else if (req.query.error){
+    } else if (req.query.error != undefined){
         switch (req.query.error){
             case '1':
                 err = 1
+                break;
             case '2':
-                err = 2
+                err = 2;
+                break;
         }
-    }
+    }; 
+    console.log(req.query.error,err)
     res.render("user.ejs", {_Data: req, m_session: req.session, m_error: err})
 })
 r.post('/',async (req, res)=>{
@@ -48,7 +51,7 @@ r.post('/',async (req, res)=>{
     var bod = req.body
     if (bod.memail==undefined){
         xlogin()
-    } else if (bod.memail){
+    } else if (bod.memail!= undefined){
         let data = {
             name: bod.uname,
             email: bod.memail,
