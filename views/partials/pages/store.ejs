@@ -1,19 +1,28 @@
 <div class="info">
-    <div class="flex">
-        <div class="i1">
-            <p>None</p>
-        </div>
-        <div class="i1">
-            <p>None</p>
-        </div>
-        <div class="i1">
-            <p>None</p>
-        </div>
-        <div class="i1">
-            <p>None</p>
-        </div>
-        <div class="i1">
-            <p>None</p>
-        </div>
+    <div class="flex warp">
+        <% if ( locals.store ) {%>
+            <% for( item in store ){ %>
+                <div class="card card-hovable">
+                    <div class="label">
+                        <p><%= store[item].name %> </p>
+                    </div>
+                    <div class="desp">
+                        <p><%= store[item].data.desp %> </p>
+                    </div>
+                    <div class="action">
+                        <div class="pairs">
+                            <div class="key">
+                                <p class="btn success">BUY</p>
+                            </div>
+                            <div class="value">
+                                <p><%= store[item].data.value %>$</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>  
+        <% } else {%>
+            <%-/* include('../error', {msg: 'storeerror'}) */ %> 
+        <% } %>   
     </div>
 </div>

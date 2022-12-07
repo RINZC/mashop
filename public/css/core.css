@@ -81,6 +81,12 @@ p {
     background-color: rgb(209, 64, 64);
 } .danger:hover {
     background-color: rgb(156, 48, 48);
+} .success {
+    background-color: rgb(70, 170, 56);
+    color: white;
+} .success:hover {
+    background-color: rgb(59, 145, 48);
+    color: white;
 }
 
 
@@ -94,14 +100,18 @@ p {
 
 
 .card {
-    margin: 0.3rem;
-    padding: 1rem;
+    margin: 0.1rem;
+    padding: .5rem;
     padding-top: 0;
     background-color: rgb(96, 39, 129);
     border-radius: .5rem;
+    transition: .2s;
 } .card-title, .crad-content {
     display: block;
-} 
+} .card-hovable:hover {
+    transform: scale(1.1);
+    box-shadow: 0rem 0rem 1rem rgb(119, 49, 160);
+}
 
 .input-group > input {
     border: none;
@@ -150,6 +160,8 @@ p {
     /* flex-wrap: wrap; */
     gap: 1rem;
     flex-direction: row;
+} .warp {
+    flex-wrap: wrap;
 }
 
 .sticky {
@@ -174,6 +186,10 @@ hr.m {
 
 .top-left {
     align-items: flex-start;
+}
+
+.p-1rem {
+    padding: 1rem;
 }
 
 ::-webkit-scrollbar {

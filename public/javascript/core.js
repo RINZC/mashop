@@ -22,6 +22,8 @@ menu=(ch=0)=>{
             return window.location = "/"
         case 1:
             return window.location = "/user"
+        case 2:
+            return window.location = "/store"
     }
     // แก้ละ ok na
 }
