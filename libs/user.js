@@ -2,7 +2,7 @@ const { MongoClient , ObjectId} = require('mongodb');
 const uri = "mongodb://data.app.riz:4566/"
 
 const client = new MongoClient(uri)
-const dataBase = client.db('shop');
+const dataBase = client.db('users_store');
 
 const store = require('./store');
 
@@ -51,7 +51,8 @@ const user = {
                     name: data.name,
                     password: data.password,
                     email: data.email,
-                    created: cd
+                    created: cd,
+                    osb: 0
                 }
                 await insert('users', comp);
                 return 'success'

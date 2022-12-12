@@ -40,10 +40,16 @@ r.post('/',async (req, res)=>{
                 for ( i in r) {
                     data[i] = r[i]
                 }
-                req.session.perm = data.perm
-                req.session.name = data.name
-                req.session.email = data.email
-                req.session.created = data.created
+                // req.session.perm = data.perm
+                // req.session.name = data.name
+                // req.session.email = data.email
+                // req.session.created = data.created
+                // req.session.osb = data.osb
+                for (x in data){
+                    if (x != '_id') {
+                        req.session[x] = data[x]
+                    }
+                }
                 res.redirect('/')
             }
         })

@@ -13,10 +13,12 @@
         </form>
     <% } %>  
     <p class="btn" onclick="menu(0)">Home</p>
-    <p class="btn" onclick="menu(2)">Store</p>
+    <% if ( locals.m_session.name ) {%>
+        <p class="btn" onclick="menu(2)">Store</p>
+    <% } %>  
 </div>
 <div class="top_text sticky">
-    <p><%= m_session.perm %> </p>
+    <p><%= m_session.osb %> </p>
 </div>
 <div class="footer">
     <p>2022 &copy; oprcrinzc</p>

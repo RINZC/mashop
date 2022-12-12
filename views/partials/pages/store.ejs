@@ -1,23 +1,19 @@
 <div class="info">
+    <div class="input-group m-1rem">
+        <input type="text" name="" id="">
+    </div>
     <div class="flex warp">
         <% if ( locals.store ) {%>
             <% for( item in store ){ %>
                 <div class="card card-hovable">
                     <div class="label">
-                        <p><%= store[item].name %> </p>
+                        <p><%= store[item].name %></p>
                     </div>
                     <div class="desp">
                         <p><%= store[item].data.desp %> </p>
                     </div>
                     <div class="action">
-                        <div class="pairs">
-                            <div class="key">
-                                <p class="btn success">BUY</p>
-                            </div>
-                            <div class="value">
-                                <p><%= store[item].data.value %>$</p>
-                            </div>
-                        </div>
+                        <p class="btn success" onclick="buy('<%= store[item]._id %> ')">BUY <%= store[item].data.value %>$</p>
                     </div>
                 </div>
             <% } %>  

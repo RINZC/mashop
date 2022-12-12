@@ -37,6 +37,12 @@ const store= {
     },
     async add(t) {
         return await insertOne('items', t)
+    },
+    async buy(id, session) {
+        res = await this.get({_id: ObjectId(id)})
+        value = res[0].data.value
+        console.log(`${session.osb} : ${value}`)
+        console.log(res[0])
     }
 }
 

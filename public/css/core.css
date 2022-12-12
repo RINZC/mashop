@@ -139,7 +139,6 @@ p {
 } .pairs > .value {
     color: black;
 }
-
 .pill {
     background-color: rgb(209, 64, 64);
     padding: 0.4rem;
@@ -191,6 +190,11 @@ hr.m {
 .p-1rem {
     padding: 1rem;
 }
+.m-1rem {
+    margin: 1rem;
+}
+
+
 
 ::-webkit-scrollbar {
     width: 2px;
