@@ -27,3 +27,7 @@ menu=(ch=0)=>{
     }
     // แก้ละ ok na
 }
+
+buy=(id)=>{
+    window.location = `/store/buy?id=${id}`
+}
