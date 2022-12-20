@@ -163,6 +163,11 @@ p {
     flex-wrap: wrap;
 }
 
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
 .sticky {
     position: sticky;
     top: 0%;
