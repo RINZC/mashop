@@ -13,7 +13,7 @@ const backend_r = require('./routes/backend');
 
 app.use(express.static("./public"));
 app.use(cookieParser());
-// -------
+
 app.use(sessions({
     secret: '=_oprcrinzcsnaff',
     saveUninitialized: true,
