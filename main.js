@@ -12,8 +12,6 @@ const store_r = require('./routes/store');
 const backend_r = require('./routes/backend');
 
 app.use(express.static("./public"));
-// app.use(bodyParser.urlencoded({extended:false}));
-// app.use(bodyParser.json());
 app.use(cookieParser());
 // -------
 app.use(sessions({
