@@ -3,6 +3,7 @@ const { login } = require('../libs/db');
 const r = ep.Router();
 
 const {user} = require('../libs/db')
+const md5 = require('md5');
 
 r.get('/', (req, res)=>{
     var err = 0
@@ -20,7 +21,7 @@ r.get('/', (req, res)=>{
                 break;
         }
     }; 
-    console.log(req.query.error,err)
+    // console.log(req.query.error,err)
     res.render("user.ejs", {_Data: req, m_session: req.session, m_error: err})
 })
 r.post('/',async (req, res)=>{
@@ -28,7 +29,7 @@ r.post('/',async (req, res)=>{
         let data = {
             name: bod.uname,
             email: bod.memail,
-            password: bod.paswd
+            password: md5(bod.paswd),
         }
         console.log("on login")
         var c = user.login(data)

@@ -4,57 +4,24 @@ const uri = "mongodb://data.app.riz:4566/"
 const client = new MongoClient(uri)
 const dataBase = client.db('users_store');
 
-const store = require('./store');
-
-const insert = async (coll, data)=>{
-    try {
-        const usersColl = dataBase.collection(coll);
-
-        const query = data;
-        await usersColl.insertOne(query)
-    } finally {
-        
-    }
-} 
-const findOne = async (coll, data)=>{
-    try {
-        const usersColl = dataBase.collection(coll);
-
-        const query = data;
-        const out = await usersColl.findOne(query)
-        return out;
-    } catch (e) {
-        console.error(e)
-    }
-} 
-const find = async (coll, data) => {
-    try {
-        bk = []
-        const useColl = dataBase.collection(coll);
-        (await useColl.find(data).toArray()).forEach((item)=>{
-            bk.push(item)
-        })
-        return bk;
-    } catch (e) {
-        console.error(e)
-    }
-}
+const md5 = require('md5');
+const cmd = new(require('./cmd'))(dataBase);
 
 const user = {
     async create(data){
-        if (await this.find({name: data.name})==null){
+        if (await this.findOne({name: data.name})==null){
             if(this.compare(data)){
                 let ndate = new Date(Date.now());
                 let cd = `${ndate.getFullYear()}.${ndate.getMonth()}.${ndate.getDay()}`
                 let comp = {
                     perm:'norm',
                     name: data.name,
-                    password: data.password,
+                    password: md5(data.password),
                     email: data.email,
                     created: cd,
                     osb: 0
                 }
-                await insert('users', comp);
+                await cmd.insertOne('users', comp);
                 return 'success'
             } else { 
                 return 'error'  
@@ -85,8 +52,24 @@ const user = {
         return true;
     },
     async find(data){
-        return await findOne('users', data)
+        return await cmd.findOne('users', data)
     },
+    async update(data){
+        var value = data.value;
+        var session = data.session;
+        session.osb -= value
+        await cmd.updateOne(
+            'users',
+            {
+                id: {name: session.name},
+                new: {
+                    $set : {
+                        osb: session.osb,
+                    }
+                }
+            }
+        )
+    }
 }
 
 module.exports = user;
