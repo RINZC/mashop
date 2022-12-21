@@ -42,7 +42,6 @@ r.post('/',async (req, res)=>{
             email: bod.memail,
             password: md5(bod.paswd),
         }
-        console.log("on login")
         var c = user.login(data)
         await c.then(r=>{ 
             if(r==null){
@@ -75,7 +74,6 @@ r.post('/',async (req, res)=>{
             email: bod.memail,
             password: bod.paswd
         }
-        console.log(data.name) 
         let resp = user.create(data)
         canLogin = false
         await resp.then(r=>{
@@ -86,7 +84,6 @@ r.post('/',async (req, res)=>{
             }
         }) 
         if ( canLogin == true ) {
-            console.log(canLogin)
             return uxlogin()
         }
     }   

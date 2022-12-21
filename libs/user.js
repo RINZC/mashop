@@ -19,7 +19,6 @@ const user = {
         ).then(o=>{
             findPreRes=o
         })
-        console.log(findPreRes);
         if ( findPreRes[0] == 0 ) {
             findRes[0]=0
         } else {
@@ -30,7 +29,6 @@ const user = {
             findRes[1]=1
         };
         var findFinalRes = `2${findRes[0]}${findRes[1]}`;
-        console.log(findFinalRes)
         if (findFinalRes=='200'){
                 let ndate = new Date(Date.now());
                 let cd = `${ndate.getFullYear()}.${ndate.getMonth()}.${ndate.getDate()}`
