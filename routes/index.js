@@ -7,7 +7,7 @@ const {xlogin} = require('./utils');
 r.get('/', async (req, res)=>{
 
     if ( req.session.name ) {
-        await xlogin(req, req.session)
+        await xlogin(req,req.session)
     }
 
     res.render("index.ejs", {_Data: req, m_session: req.session});

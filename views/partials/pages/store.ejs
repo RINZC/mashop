@@ -2,10 +2,15 @@
     <div class="input-group m-1rem">
         <input type="text" name="" id="">
     </div>
+    <% if ( locals.got_error != null) {%>
+        <script>
+            Swal.fire('ซื้อไม่ได้เงินม้ายพอ', 'ไปหาเงินมาเพิ่มก่อนเดะขายให้', 'warnning');
+        </script>  
+    <% } %>  
     <div class="flex warp flex-center">
         <% if ( locals.store ) {%>
             <% for( item in store ){ %>
-                <div class="card card-hovable">
+                <div class="card card-hovable" id="<%= store[item]._id %>">
                     <div class="label">
                         <p><%= store[item].name %></p>
                     </div>
@@ -21,5 +26,4 @@
             <%-/* include('../error', {msg: 'storeerror'}) */ %> 
         <% } %>   
     </div>
-
 </div>

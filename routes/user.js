@@ -4,8 +4,13 @@ const r = ep.Router();
 
 const {user} = require('../libs/db')
 const md5 = require('md5');
+const {xlogin} = require('./utils');
 
-r.get('/', (req, res)=>{
+
+r.get('/', async (req, res)=>{
+    if ( req.session.name ) {
+        await xlogin(req, req.session)
+    }
     var err = 0
     if (req.query.out == "1"){
         console.log('session destroyed')
@@ -16,8 +21,14 @@ r.get('/', (req, res)=>{
             case '1':
                 err = 1
                 break;
-            case '2':
-                err = 2;
+            case '201':
+                err = 201;
+                break;
+            case '210':
+                err = 210;
+                break;
+            case '211':
+                err = 211;
                 break;
         }
     }; 
@@ -25,7 +36,7 @@ r.get('/', (req, res)=>{
     res.render("user.ejs", {_Data: req, m_session: req.session, m_error: err})
 })
 r.post('/',async (req, res)=>{
-    xlogin=async ()=>{
+    uxlogin= async ()=>{
         let data = {
             name: bod.uname,
             email: bod.memail,
@@ -57,7 +68,7 @@ r.post('/',async (req, res)=>{
     }
     var bod = req.body
     if (bod.memail==undefined){
-        xlogin()
+        uxlogin()
     } else if (bod.memail!= undefined){
         let data = {
             name: bod.uname,
@@ -68,15 +79,15 @@ r.post('/',async (req, res)=>{
         let resp = user.create(data)
         canLogin = false
         await resp.then(r=>{
-            if ( r == 'success'){
+            if ( r.message == 'success'){
                 canLogin = true
-            } else if ( r == 'error'){
-                res.redirect('/user?error=2')
+            } else if ( r.message == 'error'){
+                res.redirect(`/user?error=${r.code}`)
             }
         }) 
         if ( canLogin == true ) {
             console.log(canLogin)
-            return xlogin()
+            return uxlogin()
         }
     }   
 })

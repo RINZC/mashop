@@ -31,3 +31,4 @@ menu=(ch=0)=>{
 buy=(id)=>{
     window.location = `/store/buy?id=${id}`
 }
+

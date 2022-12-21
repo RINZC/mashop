@@ -3,13 +3,17 @@
         <script>    
             Swal.fire('เข้าสู่ระบบไม่ได้', ' ไม่บอกหรอกนะอะไรทำให้เข้าไม่ได้', 'warnning');
         </script>    
-    <% }%> <% if ( locals.m_error == 2 ){ %>
+    <% }%> <% if ( locals.m_error == 210 ){ %>
         <script>    
-            Swal.fire('การสร้างบันชีร์ ผิดพาด', 'ไม่บอกหรอก ไม่ช่วยด้วยแก้เอง', 'warnning');
+            Swal.fire('การสร้างบันชีร์ ผิดพาด', 'ชื่อซ้ำอะเปลี่ยนใหม่', 'warnning');
         </script>    
-    <% }%> <% if ( locals.m_error == 4 ){ %>
+    <% }%> <% if ( locals.m_error == 201 ){ %>
         <script>    
-            Swal.fire('ซื้อไม่ได้เงินม้ายพอ', 'ไปหาเงินมาเพิ่มก่อนเดะขายให้', 'warnning');
+            Swal.fire('การสร้างบันชีร์ ผิดพาด', 'อีเมลซ้ำอะเปลี่ยนใหม่', 'warnning');
+        </script>    
+    <% }%> <% if ( locals.m_error == 211 ){ %>
+        <script>    
+            Swal.fire('การสร้างบันชีร์ ผิดพาด', 'อีเมลซ้ำอะ ชื่อก็ซ้ำไป \nเปลี่ยนใหม่', 'warnning');
         </script>    
     <% }%> 
 <% }%>

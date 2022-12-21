@@ -2,21 +2,20 @@ const express = require('express');
 const r = express.Router();
 
 const {store, user} = require('../libs/db');
+const {xlogin} = require('./utils');
 
 r.get('/',async (req, res) => {
     if (req.session.name == undefined) {
         return res.redirect('/')
+    } else if (req.session.name) {
+        await xlogin(req, req.session)
     }
-    let err = 0;
-    if (req.query.alert != undefined) {
-        switch(req.query.alert){
-            case 'not_enough_osb':
-                err = 4;
-                break;
-        }
+    let gerr = null;
+    if ( req.session.got_error ) {
+        gerr = req.session.got_error;
+        req.session.got_error = null
     }
-    console.log(err)
-    res.render('store', {_Data: req, m_session: req.session, store: await store.get(), m_error: err})
+    res.render('store', {_Data: req, m_session: req.session, store: await store.get(), got_error: gerr})
 })
 
 r.get ( '/buy' , async ( req , res ) => {
@@ -35,7 +34,8 @@ r.get ( '/buy' , async ( req , res ) => {
             )
             return res.redirect('/store')
         } if(onBuy[0]==false) {
-            return res.redirect('/store?alert=not_enough_osb')
+            req.session['got_error'] = onBuy[1]
+            return res.redirect(`/store#${id}`) 
         }
     } catch (e) {
         console.error(e)
