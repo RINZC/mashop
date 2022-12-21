@@ -27,5 +27,5 @@ app.use('/user', user_r);
 app.use('/store', store_r);
 app.use('/backend', backend_r);
 app.listen(80, ()=>{
-    console.log('ok on 80 http://app.riz');
+    console.log('ok server ruu on http://app.riz port 80');
 }) ;
