@@ -29,7 +29,7 @@ const store= {
             // return [cmd.deleteOne('items', {_id: ObjectId(id)}), value]
             return [true, value]
         } else {
-            return [session.osb>=value];
+            return [session.osb>=value, 'not_enough_osb'];
         }
     }
 }

@@ -1,5 +1,5 @@
 const {user} = require('../libs/db');
-xlogin=async (req, iden)=>{
+const xlogin = async (req, iden)=>{
     let data = {
         name: iden.name,
         password: iden.password,

@@ -9,10 +9,31 @@ const cmd = new(require('./cmd'))(dataBase);
 
 const user = {
     async create(data){
-        if (await this.findOne({name: data.name})==null){
-            if(this.compare(data)){
+        var findRes = [];
+        var findPreRes;
+        await this.find(
+            [
+                {name: data.name},
+                {email: data.email}
+            ]
+        ).then(o=>{
+            findPreRes=o
+        })
+        console.log(findPreRes);
+        if ( findPreRes[0] == 0 ) {
+            findRes[0]=0
+        } else {
+            findRes[0]=1
+        }; if ( findPreRes[1] == 0 ) {
+            findRes[1]=0
+        } else {
+            findRes[1]=1
+        };
+        var findFinalRes = `2${findRes[0]}${findRes[1]}`;
+        console.log(findFinalRes)
+        if (findFinalRes=='200'){
                 let ndate = new Date(Date.now());
-                let cd = `${ndate.getFullYear()}.${ndate.getMonth()}.${ndate.getDay()}`
+                let cd = `${ndate.getFullYear()}.${ndate.getMonth()}.${ndate.getDate()}`
                 let comp = {
                     perm:'norm',
                     name: data.name,
@@ -22,12 +43,15 @@ const user = {
                     osb: 0
                 }
                 await cmd.insertOne('users', comp);
-                return 'success'
-            } else { 
-                return 'error'  
-            }
+                return {
+                    message: 'success',
+                    code: findFinalRes
+                }
         }else { 
-            return 'error'  
+            return {
+                message: 'error',
+                code: findFinalRes
+            } 
         }
     },
     async login(data){
@@ -52,7 +76,11 @@ const user = {
         return true;
     },
     async find(data){
-        return await cmd.findOne('users', data)
+        var result = []
+        for ( x in data ) {
+            result.push(Object.keys(await cmd.findOne('users', data[x])).length)
+        }
+        return result
     },
     async update(data){
         var value = data.value;
